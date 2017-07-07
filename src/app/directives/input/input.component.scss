@@ -28,19 +28,6 @@
   text-transform: uppercase;
 }
 
-.submit-btn {
-  margin: 10px;
- 
-  .btn {
-    background-color: #5E35B1;
-    color: white;
-
-    &-disabled {
-      opacity: 0.4;
-    }
-  }
-}
-
 .ts-label {
   color: #7C4DFF;
 }
@@ -56,7 +43,7 @@
     margin-left: auto;
     margin-right: 0;
 
-    md-icon {
+    .delete-icon {
       color: #f44336;
     }
   }

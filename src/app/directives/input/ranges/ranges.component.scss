@@ -6,10 +6,6 @@
   }
 }
 
-.btn {
-  display: inline-flex;
-}
-
 .container {
   justify-content: center;
   align-items: center;
@@ -17,24 +13,4 @@
 
 .card-range {
   margin: 20px;
-}
-
-.values {
-  display: inline-flex;
-
-  md-chip-list {
-    position: absolute;
-    top:0;
-    display: inline-flex;
-    margin-left: 40px;
- }
-}
-
-.actions {
-  max-width: 50px;
-  font-size: 12px;
-}
-
-.format-label {
-  text-transform: uppercase;
 }
