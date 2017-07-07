@@ -1,10 +1,10 @@
 # JsApp
 
-This is a sample app that exemplifies the use of nested angular reactive forms synchronizing its validations. The outputs are shown in live JSON output.
+This is an app that exemplifies the use of nested angular reactive forms, allowing to have custom validations and synchronize them. The outputs are shown in live JSON output.
 
 ## Getting Started
 
-Install needed dependencies:
+Install dependencies:
 
 ```
 npm install
@@ -28,4 +28,4 @@ Navigate to `http://localhost:4200/`.
 
 ## Authors
 
-* **Efrain Zaldumbide** [Efgonz](https://github.com/efgonz)
+* **Efrain Zaldumbide** - [Efgonz](https://github.com/efgonz)
