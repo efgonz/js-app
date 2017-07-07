@@ -51,10 +51,8 @@ export class AttributesService {
 
   /**Deletes an attribute */
   deleteAttribute(id: string) {
-    const array = this.attributes.filter(element => {
-      return element.id !== id;
-    });
-    this.attributes = array;
+    const index = this.attributes.findIndex(v => v.id === id);
+    this.attributes.splice(index, 1);
     this.attributeDeleted.next('');
   }
 
