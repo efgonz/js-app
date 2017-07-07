@@ -1,0 +1,54 @@
+/* You can add global styles to this file, and also import other style files */
+@import '../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.fast {
+  -webkit-animation-duration: 0.4s;
+  animation-duration: 0.4s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+}
+
+.add-icon {
+  display: inline-flex;
+  margin-left: 10px;
+  align-items: center;
+}
+
+.add-icon-text {
+  color: darkgoldenrod;
+  margin: 0 0 0 10px !important;
+}
+
+.create-link {
+  cursor: pointer; 
+}
+
+.add-icon {
+  margin-top: 300px;
+  padding-bottom: 10px;
+}
+
+.tab-container {
+  min-height: 400px !important;
+}

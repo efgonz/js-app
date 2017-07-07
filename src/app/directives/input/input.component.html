@@ -1,0 +1,118 @@
+<form [formGroup]="form" (ngSubmit)="submit">
+  <!-- Name and Description -->
+  <md-card class="container">
+    <md-input-container class="box box-left">
+      <input mdInput
+             formControlName="name"
+             placeholder="Name">
+        <md-hint *ngIf="form.get('name').hasError" class="mat-input-error">
+          <div *ngIf="form.get('name').hasError('required')">Required</div>
+          <div *ngIf="form.get('name').hasError('error')">
+            {{ form.get('name').errors.error }}           
+          </div>
+        </md-hint>
+      </md-input-container>
+    <md-input-container class="box box-right">
+      <textarea mdInput
+                formControlName="description"
+                placeholder="Description"
+                rows="1"></textarea>
+        <md-hint *ngIf="form.get('description').hasError" class="mat-input-error">
+          <div *ngIf="form.get('description').hasError('required')">Required</div>
+        </md-hint>
+    </md-input-container>
+  </md-card><!-- Name and Description -->
+
+  <!-- Device Resource -->
+  <md-card class="container">
+    <md-select class="box box-left"
+               placeholder="Device Resource Type"
+               formControlName="deviceResourceType">
+      <md-option [value]="'DEFAULT VALUE'">DEFAULT VALUE</md-option>
+    </md-select>
+    <md-input-container class="box">
+      <input mdInput
+             placeholder="Default Value"
+             formControlName="defaultValue">
+        <md-hint *ngIf="form.get('defaultValue').hasError" class="mat-input-error">
+          <div *ngIf="form.get('defaultValue').hasError('required')">Required</div>
+        </md-hint>
+    </md-input-container>
+  </md-card><!-- Device Resource -->
+
+  <!-- Data -->
+  <md-card class="container">
+    <md-select class="box box-left format-label"
+               placeholder="Data Type"
+               formControlName="dataType">
+      <md-option class="format-label"
+                 *ngFor="let type of types"
+                 [value]="type.value">{{type.value}}</md-option>
+
+    </md-select>
+    <md-select class="box box-left format-label"
+               placeholder="Format"
+               formControlName="format">
+      <md-option class="format-label"
+                 *ngFor="let format of formats"
+                 [value]="format.value">{{ format.value }}</md-option>
+    </md-select>
+  </md-card><!-- Data -->
+
+  <!-- Ranges -->
+  <md-card *ngIf="format === 'number'">
+    <div class="card-range">
+      <app-ranges (rangesStatus)="verifyStatus($event)"
+                  (rangesData)="rangesData=$event; updateValues($event)"></app-ranges>
+    </div>
+  </md-card><!-- Ranges -->
+
+  <!-- Enumerations -->
+  <md-card>
+    <div [hidden]="format !== 'none'">
+      <md-input-container class="box">
+        <input mdInput
+               formControlName="enumerations"
+               placeholder="Enumerations"></md-input-container>
+
+      <div class="btn delete-icon">
+        <div class="example-tooltip-host" mdTooltip="Add value" [mdTooltipPosition]="'above'">
+          <button md-raised-button type="submit"
+                  [disabled]="form.get('enumerations').value === ''"
+                  (click)="submitValue(form.get('enumerations').value)">Add Value</button>
+        </div>
+      </div>
+
+      <md-card-subtitle>Values:</md-card-subtitle>
+      <md-grid-list cols="4" rowHeight="30px">
+        <div class="value-container">
+          <md-grid-tile *ngFor="let value of values" [style.background]="'lightblue'">
+            <span>{{value}}</span>
+            <md-card-actions class="btn-delete">
+              <div class="example-tooltip-host" mdTooltip="Delete Value" [mdTooltipPosition]="'above'">
+                <button md-icon-button type="button"
+                        (click)="removeValue(value)"><md-icon>clear</md-icon></button>
+              </div>
+            </md-card-actions>
+          </md-grid-tile>
+        </div>
+      </md-grid-list>
+      <md-card-subtitle class="ts-label" *ngIf="values.length === 0">
+        Your values will apprear here
+      </md-card-subtitle>
+
+    </div>
+  </md-card><!-- Enumerations -->
+
+  <!-- Card footer -->
+  <md-card-content class="footer-container">
+    <button md-raised-button color="primary" class="delete-btn" (click)="deleteAttribute()">
+      <div mdTooltip="Delete Attribute" [mdTooltipPosition]="'above'">
+        <span>Delete Attribute</span>
+      </div>
+    </button>
+    <span class="indicator indicator-text fast fadeIn" [ngClass]="{'valid': validForm, 'invalid': !validForm}">Validation</span>
+    <md-icon *ngIf="validForm" class="indicator indicator-check fast fadeIn">done</md-icon>
+    <md-icon *ngIf="!validForm" class="indicator indicator-times fast fadeIn">clear</md-icon>
+  </md-card-content><!-- Card footer -->
+</form>

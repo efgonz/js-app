@@ -1,0 +1,13 @@
+<div class="animated fadeIn">
+  <app-input *ngIf="isCreating"
+             [attrib]="attribute"
+             [attributes]="attributes"
+             (valid)="sendValidation($event)"
+             (deleted)="isCreating=false"></app-input>
+  <div *ngIf="!isCreating" class="add-icon">
+    <a md-mini-fab (click)="createAttribute()"><md-icon>add</md-icon></a>
+    <md-card-subtitle class="add-icon-text">
+    <a class="create-link" (click)="createAttribute()">Add a new Attribute</a>
+    </md-card-subtitle>
+  </div>
+</div>

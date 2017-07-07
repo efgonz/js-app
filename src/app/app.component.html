@@ -1,0 +1,20 @@
+<div class="container">
+  <md-card class="card-box">
+    <md-toolbar color="primary">
+      <span>Nested Form</span>
+    </md-toolbar>
+    <app-main (validation)="setSaveBtnState($event)"></app-main>
+    <md-card-actions>
+      <button md-raised-button color="primary" [disabled]="!validation">Save</button>
+      <button md-raised-button>Cancel</button>
+    </md-card-actions>
+  </md-card>
+  <md-card class="json-card">
+    <md-toolbar color="primary">
+      <span>Live JSON output</span>
+    </md-toolbar>
+    <pre>
+      <div>{{ attributes | json }}</div>
+    </pre>
+  </md-card>
+</div>

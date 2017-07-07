@@ -1,0 +1,19 @@
+<div style="padding: 7px" class="tab-container">
+  <md-tab-group [class.fix]="fix">
+    <md-tab label="Attrinute 1">
+      <app-attribute1 (valid)="valid_1=$event; submitValidation()"></app-attribute1>
+    </md-tab>
+    <md-tab label="Attrinute 2">
+      <app-attribute2 (valid)="valid_2=$event; submitValidation()"></app-attribute2>
+    </md-tab>
+    <md-tab label="Attrinute 3">
+      <app-attribute3 (valid)="valid_3=$event; submitValidation()"></app-attribute3>
+    </md-tab>
+    <md-tab label="Attrinute 4">
+      <app-attribute4 (valid)="valid_4=$event; submitValidation()"></app-attribute4>
+    </md-tab>
+    <md-tab label="Attrinute 5">
+      <app-attribute5 (valid)="valid_5=$event; submitValidation()"></app-attribute5>
+    </md-tab>
+  </md-tab-group>
+</div>

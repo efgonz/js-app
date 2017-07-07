@@ -1,0 +1,55 @@
+<form [formGroup]="formRanges" (ngSubmit)="submit">
+  <md-card-subtitle>Ranges:</md-card-subtitle>
+  <md-card class="container">
+    <md-input-container class="box box-left">
+      <input mdInput formControlName="rangeMin" placeholder="Range Min">
+      <md-hint *ngIf="formRanges.get('rangeMin').hasError" class="mat-input-error">
+        <div *ngIf="formRanges.get('rangeMin').hasError('required')">
+          Required
+        </div>
+        <div *ngIf="formRanges.get('rangeMin').hasError('error')">
+          {{ formRanges.get('rangeMin').errors.error }}           
+        </div>
+      </md-hint>
+    </md-input-container>
+    <md-input-container class="box">
+      <input mdInput formControlName="rangeMax" placeholder="Range Max">
+      <md-hint *ngIf="formRanges.get('rangeMax').hasError" class="mat-input-error">
+        <div *ngIf="formRanges.get('rangeMax').hasError('required')">
+          Required
+        </div>
+        <div *ngIf="formRanges.get('rangeMax').hasError('error')">
+          {{ formRanges.get('rangeMax').errors.error }}           
+        </div>
+      </md-hint>
+    </md-input-container>
+  </md-card>
+
+  <md-card class="container">
+    <md-input-container class="box box-left">
+      <input mdInput formControlName="unit" placeholder="Unit of Meassurement">
+    </md-input-container>
+    <md-input-container class="box box-left">
+      <input mdInput formControlName="precision" placeholder="Precision">
+      <md-hint *ngIf="formRanges.get('precision').hasError" class="mat-input-error">
+        <div *ngIf="formRanges.get('precision').hasError('required')">
+          Required
+        </div>
+        <div *ngIf="formRanges.get('precision').hasError('error')">
+          {{ formRanges.get('precision').errors.error }}           
+        </div>
+      </md-hint>
+    </md-input-container>
+    <md-input-container class="box">
+      <input mdInput formControlName="accuracy" placeholder="Accuracy">
+      <md-hint *ngIf="formRanges.get('accuracy').hasError" class="mat-input-error">
+        <div *ngIf="formRanges.get('accuracy').hasError('required')">
+          Required
+        </div>
+        <div *ngIf="formRanges.get('accuracy').hasError('error')">
+          {{ formRanges.get('accuracy').errors.error }}           
+        </div>
+      </md-hint>
+    </md-input-container>
+  </md-card>
+</form>
