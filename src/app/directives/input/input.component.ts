@@ -129,12 +129,10 @@ export class InputComponent implements OnInit {
   /**Checks if an attribute name already exist */
   checkIfExistingName() {
     this.form.controls['name'].valueChanges.subscribe(name => {
-      const name_1 = name.toLowerCase();
       if (this.attributes) {
         this.attributes.forEach(item => {
-          const name_2 = item.name.toLowerCase();
-          if (name_1 === name_2) {
-            this.form.controls['name'].setErrors({ 'error': 'Name already taken' });
+          if (name === item.name) {
+            this.form.controls['name'].setErrors({ 'error': 'Name already taken' });   
           }
         });
       }
