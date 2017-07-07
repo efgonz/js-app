@@ -64,7 +64,7 @@ export class InputComponent implements OnInit {
     this.form = new FormGroup ({
       'name': new FormControl('', Validators.required),
       'description': new FormControl('', Validators.required),
-      'deviceResourceType': new FormControl(),
+      'deviceResourceType': new FormControl('DEFAULT VALUE'),
       'defaultValue': new FormControl('', Validators.required),
       'dataType': new FormControl('string'),
       'enumerations': new FormControl(''),
@@ -119,7 +119,6 @@ export class InputComponent implements OnInit {
         this.form.controls['defaultValue'].setValue(null);
         this.form.controls['format'].setValue(null);
       } else {
-        this.form.controls['deviceResourceType'].enable();
         this.form.controls['defaultValue'].enable();
         this.form.controls['format'].enable();
       }
